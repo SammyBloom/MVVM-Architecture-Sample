@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.example.mvvmarcchitecturesample.ui.auth.AuthViewModel" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E2E2E2"
+        tools:context=".ui.auth.LoginActivity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/image_view_logo"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="75dp"
+                android:background="@drawable/ic_baseline_android_24"/>
+
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@id/image_view_logo">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Architect your app with"
+                    android:layout_gravity="center_horizontal"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                    android:textColor="#465A61"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MVVM"
+                    android:layout_gravity="center_horizontal"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                    android:textColor="#969EEE"
+                    android:textStyle="bold"
+                    android:fontFamily="casual"
+                    android:typeface="monospace" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white"
+                android:padding="18dp"
+                android:layout_below="@id/linearLayout1">
+
+                <EditText
+                    android:id="@+id/signin_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="nwachiemi@gmai.com"
+                    android:text="@={viewmodel.email}"
+                    android:inputType="textEmailAddress"
+                    android:drawableLeft="@drawable/ic_baseline_email_24"
+                    android:drawablePadding="16dp"
+                    android:background="@drawable/edit_text_round_grey_background"
+                    android:padding="12dp"/>
+
+                <EditText
+                    android:id="@+id/signin_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="password"
+                    android:text="@={viewmodel.password}"
+                    android:drawableLeft="@drawable/ic_baseline_lock_24"
+                    android:inputType="textPassword"
+                    android:drawablePadding="16dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/edit_text_round_grey_background"
+                    android:padding="12dp"/>
+
+                <TextView
+                    android:id="@+id/password_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/password_forgot"
+                    android:textSize="16sp"
+                    android:textColor="@color/teal_200"/>
+
+                <Button
+                    android:id="@+id/sign_in"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/button_color"
+                    android:text="Sign In"
+                    android:onClick="@{viewmodel :: onLoginButtonClick}"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp"
+                    android:layout_marginTop="20dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/text2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Don't have a account?"
+                android:layout_below="@id/linearLayout2"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:textSize="20sp"
+                android:textColor="@color/teal_200"/>
+
+            <TextView
+                android:id="@+id/signup_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/signup_prompt"
+                android:layout_below="@id/text2"
+                android:gravity="center_horizontal"
+                android:textSize="20sp"
+                android:textColor="@color/teal_200"/>
+
+        </RelativeLayout>
+
+        <!--suppress AndroidDomInspection -->
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal | center_vertical"/>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

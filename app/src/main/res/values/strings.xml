@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MVVM Arcchitecture Sample</string>
+    <string name="password_forgot">Forgot Password?</string>
+    <string name="signup_prompt">Sign Up Here</string>
+</resources>
